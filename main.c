@@ -8,8 +8,8 @@ struct stack1{
 };
 
 void shuffle(int array[], int length);
-int show(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5);
-int winlose(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5, int turns);
+void show(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5);
+void winlose(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5, int turns);
 void pushing(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5, int tmp, int c);
 void create(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5);
 int elements[16] = {1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4};
@@ -30,7 +30,7 @@ int isFull(struct stack1 * ptr){
         return 0;
     }
 }
-int push(struct stack1 * ptr, int val){
+void push(struct stack1 * ptr, int val){
     if(isFull(ptr)){
         printf("Stack overflow.\nYou lose!\n");
         exit(0);
@@ -39,7 +39,7 @@ int push(struct stack1 * ptr, int val){
         ptr -> top1++;
         ptr -> arr1[ptr -> top1] = val;
 }}
-int pop(struct stack1 * ptr){
+void pop(struct stack1 * ptr){
     if(isEmpty(ptr)){
         printf("Stack underflow.\nYou lose!\n");
         exit(0);
@@ -163,7 +163,7 @@ void create(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stac
     push(p4, elements[l]);}
     }
 
-int show(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5){
+void show(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5){
     //First stack
 
     printf("\t\t\t\t\t\t\t(' _ ')\n");
@@ -366,7 +366,7 @@ void pushing(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct sta
 
     }
 
-int winlose(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5, int turns){
+void winlose(struct stack1 *p1, struct stack1 *p2, struct stack1 *p3, struct stack1 *p4, struct stack1 *p5, int turns){
 
     if (isEmpty(p1)){
          if(p2 -> arr1[p2 -> top1] == p2 -> arr1[p2 -> top1 - 1] && p2 -> arr1[p2 -> top1 - 1] == p2 -> arr1[p2 -> top1 - 2] && p2 -> arr1[p2 -> top1 - 2] == p2 -> arr1[p2 -> top1 - 3]){
